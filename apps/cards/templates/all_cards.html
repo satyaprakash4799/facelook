@@ -10,18 +10,20 @@
 
         
             <div class="col-sm-12 col-md-4">
-                <div class="thumbnail">
-                    {% if card.card_hero_image %}
-                        <a href="{{card.id}}/">
-                            <p><img src="/media/{{card.card_hero_image}}" width="330" height ="160"/></p>
-                        </a>
-                    {% endif %}
-                    <div class="caption">
-                        <a href="{{card.id}}/"><h3>{{ card.card_title }}</h3></a>
-                        <p>{{ card.card_description|truncatewords:3 }}</p>
-                        <p><a href="{{card.id}}/" class="btn btn-primary" role="button">View Card</a> <a href="{{card.id}}/" class="btn btn-default" role="button">View Card</a></p>
-                    </div>
-                </div>
+                
+                    
+                    <a href="{{card.id}}/">
+                        <p><img src="/media/{{card.card_hero_image}}" width="330" height ="160"/></p>
+                    </a>
+                    
+                    
+                    <a href="{{card.id}}"><h3>{{ card.card_title }}</h3></a>
+
+                    <p>{{ card.card_description|truncatewords:3 }}</p>
+
+                    
+                    
+                
             </div>
         
 

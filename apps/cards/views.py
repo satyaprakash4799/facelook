@@ -2,6 +2,8 @@ from django.core.context_processors import csrf
 from django.shortcuts import render
 
 from apps.cards.models import Cards
+from apps.comments.models import Comments
+
 # Create your views here.
 
 
@@ -19,7 +21,8 @@ def view_card(request, card_id):
     """Display specific card."""
     context = {}
     card = Cards.objects.get(id=card_id)
-    context = {'card': card}
+    comments = Comments.objects.filter(cards=card)
+    context = {'card': card, 'comments': comments}
     template = 'view_card.html'
     context.update(csrf(request))
     return render(request, template, context)

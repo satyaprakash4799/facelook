@@ -40,6 +40,8 @@ INSTALLED_APPS = (
 
     # Custom apps
     'apps.cards',
+    'apps.users',
+    'apps.comments',
 )
 
 MIDDLEWARE_CLASSES = (

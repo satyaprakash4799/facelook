@@ -21,4 +21,6 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^cards/', include('apps.cards.urls')),
+    url(r'^users/', include('apps.users.urls')),
+    url(r'^comments/', include('apps.comments.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,6 +1,6 @@
 """Models Defenition."""
 from django.db import models
-# from apps.users.models import UserProfile
+from apps.users.models import UserProfile
 import datetime
 # Create your models here.
 
@@ -8,10 +8,10 @@ import datetime
 class Cards(models.Model):
     """docstring for cards."""
 
-    # user_profile = models.ForeignKey(
-    #     UserProfile,
-    #     related_name='card',
-    #     default=1)
+    user_profile = models.ForeignKey(
+        UserProfile,
+        related_name='card',
+        default="")
 
     card_hero_image = models.ImageField(
         upload_to='Cards',

@@ -8,7 +8,7 @@
 		<p><img src="/media/{{card.card_hero_image}}" width="730" height ="160"/></p>
 
 	{% endif %}
-	 created on -{{ card.card_created_on }} |
+	 created on -{{ card.card_created_on }} | by {{card.user_profile}}
      <br>
 	 <br>
 
@@ -17,26 +17,34 @@
 
 	 <br>
 	 <br>
-	 {% if comments %}
-	 		<h3>Comments</h3>
-	 	{% for comment in comments %}
-	 		<p1>{{comment.comments}}</p1>
-	 		<br>
-	 	{% endfor %}
-	 
+	 <br>
+	 <br>
+	 <br>
 
-
-    <form action="/comments/comment/{{card.id}}/" method="POST" enctype="multipart/form-date">
-    	{% csrf_token %}
+	 <form action="/comments/comment/{{card.id}}/" method="POST" enctype="multipart/form-date">
+    		{% csrf_token %}
     		
      
             <label>Comments</label>
     		<input type="text" name="card_comment">
 
-    		<input type='submit' name='submit' value='Comment'>
+    		<input class="btn btn-primary" type='submit' name='submit' value='Comment'>
           
-    </form>
-
+     </form>
+	 
+	 {% if comments %}
+	 	<h3>Comments</h3>
+	 	<div class="row" style="background-color: gainsboro;">
+	 		<div class="col-md-12 col-xm-12 col-xs-12">
+	 			{% for comment in comments %}
+			 		<h4 style="background-color: #fff;">{{comment.comments}} <span>| by {{comment.user_profile}}</span></h4>
+			 		<br>
+			 	{% endfor %}
+	 		</div>
+	 		
+	 	</div>
+	 	
+	 
     {% endif %}
 
 </div>
