@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>{{ page }}</h3>
+    <p>
+    	<form action="/cards/create_card/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    		<label>Card Title</label>
+    		<input type="text" name="card_title">
+
+    		<label>Card Description</label>
+    		<input type="text" name="card_description">
+
+    		<label>Card Picture</label>
+    		<input type="file" name="card_picture"/></label>
+
+    		<input type='submit' name='submit' value='Create Card'>
+    	</form>
+    </p>
+{% endblock %}

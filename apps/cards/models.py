@@ -1,7 +1,7 @@
 """Models Defenition."""
 from django.db import models
 from apps.users.models import UserProfile
-import datetime
+from django.utils import timezone
 # Create your models here.
 
 
@@ -14,7 +14,7 @@ class Cards(models.Model):
         default="")
 
     card_hero_image = models.ImageField(
-        upload_to='Cards',
+        upload_to='Cards/',
         blank=True,
         null=True,
         verbose_name='Card display image',
@@ -24,10 +24,9 @@ class Cards(models.Model):
         max_length=255,
         blank=False,
         null=False,)
-
     card_created_on = models.DateTimeField(
         'date published',
-        default=datetime.datetime.now)
+        default=timezone.now)
 
     card_description = models.TextField(
         blank=False,

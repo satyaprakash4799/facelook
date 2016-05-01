@@ -102,8 +102,8 @@ def account(request):
             profile_picture = request.FILES.get('profile_picture')
             gender = request.POST.get('sex')
 
-            user_info = request.user.id
-            user_info = User.objects.get(id=user_info)
+            user_info = request.user
+            user_info = UserProfile.objects.get(user=user_info)
 
             try:
                 user_info_collect = UserProfileInfo.objects.get(user=user_info)
@@ -130,12 +130,12 @@ def account(request):
             context = {'success': False, 'message': 'Saving failed'}
 
     else:
-        user_info = request.user.id
-        user_info = User.objects.get(id=user_info)
         try:
-            UserProfileInfo.objects.get(user=user_info)
-            context = {'account': UserProfileInfo.objects.get(user=user_info)}
+            user_info = request.user
+            user_info = UserProfile.objects.get(user=user_info)
+            user_info = UserProfileInfo.objects.get(user=user_info)
+            context = {'account': user_info}
         except:
-            print('do nothing')
+            print('User Info Not Found')
         context.update(csrf(request))
         return render_to_response('account.html', context)

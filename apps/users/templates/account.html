@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {%if account.full_name %}
+    {%if account %}
     <p>
         <h1>Here's what we know about you!</h1>
         <img src="/media/{{account.profile_picture}}" width="160" height ="160"/>
@@ -38,7 +38,7 @@
                 <input type="file" name="profile_picture">
             </p>
 
-            <input type='submit' name='submit' value='Up Date'>
+            <input class="btn btn-primary" type='submit' name='submit' value='Up Date'>
         </form>
     </p>
 

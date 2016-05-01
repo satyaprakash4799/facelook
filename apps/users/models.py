@@ -43,7 +43,7 @@ class UserProfile(models.Model):
 class UserProfileInfo(models.Model):
     """Class to store User Profile."""
 
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(UserProfile)
 
     gender = models.CharField(max_length=8, choices=GENDER_CHOICES)
 
@@ -63,4 +63,4 @@ class UserProfileInfo(models.Model):
         """Information About the class."""
 
         verbose_name = "UserProfileInfo"
-        verbose_name_plural = "UserProfileInfo's"
+        verbose_name_plural = "UserProfileInfo"
