@@ -29,4 +29,4 @@ class Comments(models.Model):
 
     def __unicode__(self):
         """Unicode for Comments."""
-        return self.cards.card_title
+        return str(self.cards.card_title)

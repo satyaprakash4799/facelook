@@ -31,7 +31,7 @@ class UserProfile(models.Model):
 
     def __unicode__(self):
         """Unicode class."""
-        return self.name
+        return str(self.name)
 
     class Meta:
         """Information About the class."""

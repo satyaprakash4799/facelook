@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from apps.cards.models import Cards
 from apps.users.models import UserProfile
 from apps.comments.models import Comments
-
+from apps.comments.forms import CommentsForm
 # Create your views here.
 
 
@@ -21,10 +21,12 @@ def all_cards(request):
 
 def view_card(request, card_id):
     """Display specific card."""
+    import ipdb; ipdb.set_trace()
     context = {}
     card = Cards.objects.get(id=card_id)
     comments = Comments.objects.filter(cards=card)
-    context = {'card': card, 'comments': comments}
+    form = CommentsForm()
+    context = {'card': card, 'comments': comments, 'form': form}
     template = 'view_card.html'
     context.update(csrf(request))
     return render(request, template, context)
@@ -33,7 +35,6 @@ def view_card(request, card_id):
 @login_required(login_url='/users/login/')
 def create_card(request):
     """Creating new cards."""
-    import ipdb; ipdb.set_trace()
     context = {}
     if request.method == 'POST':
         try:
