@@ -40,7 +40,7 @@ def create_card(request):
 
             card_title = request.POST.get('card_title')
             card_description = request.POST.get('card_description')
-            card_picture = request.POST.get('card_picture')
+            card_picture = request.FILES.get('card_picture')
             created_by = request.user
             created_by = UserProfile.objects.get(user=created_by)
 

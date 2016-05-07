@@ -14,7 +14,7 @@ class Cards(models.Model):
         default="")
 
     card_hero_image = models.ImageField(
-        upload_to='Cards/',
+        upload_to='Cards',
         blank=True,
         null=True,
         verbose_name='Card display image',
